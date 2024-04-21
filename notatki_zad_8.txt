@@ -1,0 +1,25 @@
+Zadanie 8: Napisz pseudokod procedury, która dla danych wielomianów f, g ∈ k[x] znajduje takie A, B ∈ k[x], że nwd(f, g) = A · f + B · g. Wskazówka: Wzoruj się na algorytmie wyznaczania największego wspólnego dzielnika dla liczb całkowitych
+
+Pseudokod:
+function NWD_Wielomianów(f, g):
+    while g != 0 do:
+        r := reszta z dzielenia f przez g
+        f := g
+        g := r
+    end while
+    nwd := g
+    A := f / nwd
+    B := g / nwd
+    return A, B
+
+
+Pętla będzie działać dopóki stopień g będzie większy niż zero. 
+Dzięki temu pętla zakończy się, gdy stopień g spadnie do zera lub gdy reszta z dzielenia f przez g 
+                                                                        będzie wielomianem zerowym.
+W każdym kroku obliczana jest reszta z dzielenia wielomianu f przez wielomian g i przypisywana do zmiennej r.
+Następnie f przyjmuje wartość g, a g przyjmuje wartość r.
+
+Po zakończeniu pętli, wielomian g przechowuje największy wspólny dzielnik wielomianów f i g, 
+                                                                    który jest przypisywany do zmiennej nwd.
+
+Następnie obliczane są wielomiany A i B, które są odpowiednio f podzielone przez nwd i g podzielone przez nwd.

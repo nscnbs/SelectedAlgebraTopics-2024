@@ -1,0 +1,10 @@
+Zadanie 4:
+Krzywą czterolistną nazywaną krzywą zadaną następującym równaniem r(θ) = sin(2θ) we współrzędnych biegunowych.
+1. Narysuj wykres tej krzywej na płaszczyźnie.
+2. Spróbuj znaleźć wielomian w(x, y) taki, że r[R] = V(w).
+
+Notatki:
+(sin(2θ), θ)
+x = r*cosθ = sin(2θ)*cos(θ)
+y = r*sinθ = sin(2θ)*sin(θ)
+θ należy do [-pi;pi]

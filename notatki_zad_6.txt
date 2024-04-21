@@ -1,0 +1,21 @@
+Wielomiany i rozmaitości.
+Zadanie 6: Zaproponuj algorytm który wyznacza punkty minimalne dla skończonych podzbiorów A ⊆N^k dla porządku (x1, ...,xk)<= (y1, . . . , yk) ←→ ∧ od k do i=1(xj <= yi)
+1. Ile jest punktów minimalnych w zbiorze {n, k) ∈ N^2 : n*k >= 11}? x·y=11 -> y = 11/x
+Chcemy znaleźć minimalne punkty w których iloczyn nk jest minimalny, spełniając jednocześnie warunek nk >= 11.
+
+Aby to zrobić, możemy zauważyć, że im mniejsza liczba, tym większa druga liczba jest wymagana, aby spełnić warunek n*k ≥ 11. Oznacza to, że minimalne punkty będą miały najsłabszy czynnik większy lub równy pierwiastkowi kwadratowemu z 11 (ponieważ jest to najmniejsza liczba spełniająca warunek).
+
+Skoro 11 jest liczbą pierwszą, to możemy rozważyć kombinacje par liczb, których iloczyn wynosi 11, czyli (1, 11) lub (11, 1). Ale patrząc na warunek n*k >= 11, zauważamy, że druga liczba musi być co najmniej 11 (w przeciwnym razie iloczyn nie będzie spełniał warunku). Więc jedyne sensowne rozwiązanie to (1, 11), gdzie n=1 i k=11.
+
+Zatem istnieje tylko jeden punkt minimalny, który spełnia warunek w tym zbiorze: (1, 11).
+
+
+2. Ile jest punktów minimalnych w zbiorze {n, k) ∈ N^2 : (n − 10)^2 + (y − 10)^2 <= 25}?
+
+Dla drugiego zbioru {n, k) ∈ ℕ^2 : (n − 10)^2 + (k − 10)^2 ≤ 25, chcemy znaleźć punkty minimalne wewnątrz danego okręgu.
+
+Okrąg ten ma środek w punkcie (10, 10) i promień 5 (ponieważ równanie (n − 10)^2 + (k − 10)^2 = 25 to równanie okręgu o promieniu 5 i środku w punkcie (10, 10)). Wszystkie punkty wewnątrz tego okręgu będą miały odległość od punktu (10, 10) mniejszą lub równą 5.
+
+Dla punktów minimalnych, możemy patrzeć na te, które są najbliżej punktu (10, 10). W tym przypadku, każdy punkt na okręgu o promieniu 5 wokół (10, 10) będzie spełniał warunek minimalności.
+
+Oznacza to, że każdy punkt na okręgu o promieniu 5 wokół punktu (10, 10) będzie punktem minimalnym.

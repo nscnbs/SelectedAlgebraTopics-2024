@@ -1,0 +1,46 @@
+Liczbami Gaussa nazywamy pierścień Z[i] = {a+bi : a, b ∈ Z} z dodawaniem i dzieleniem odziedziczonym z liczb zespolonych. Na Z[i] określamy funkcję (zwaną normą) N (a+bi) = a^2 + b^2. Dla x, y ∈ Z[i] określamy x|y ←→ (∃z ∈ Z[i])(y = x*z)
+1. Napisz algorytm dzielenia z resztą w pierścieniu liczb Gaussa Z[i], czyli algorytm, który dla danych x, y ∈ Z[i], y != 0 wyznaczy q, r ∈ Z[i] takie, że x = q*y + r oraz N(r) < N(y).
+2. Największym wspólnym dzielnikiem liczb u, v ∈ Z[i] nazywamy takie d ∈ Z[i], że (d|u) ∧ (d|v) oraz (∀x ∈ Z[i])(x|u ∧ x|v → x|d). Oprogramuj algorytm wyznaczania NWD dla Z[i] na podstawie podanego niżej pseudokodu NWD.
+3. Oprogramuj funkcję wyznaczającą NWW(x, y) dla x, y ∈ Z[i] na podstawie pseudokodu NWW.
+4. Ideał generowany przez liczby a_1, ..., a_k oznaczamy przez (a_1, . . . , a_k). Korzystając z poprzednich dwóch podpunktów znajdź takie c i d, że (3 + 4i, 1 + 3i) = (c) oraz (3 + 4i) ∩ (1 + 3i) = (d).
+
+Notatki:
+1) a + bi = q*(c+di) + r1
+k = NWD(a+bi,c+di) = NWD(c+di, r) = NWD (r1, r2).... = NWD (rk, 0)
+
+Pseudokod do podpunktu 1:
+div(a+bi, c+di){
+	x = (a*c+b*d)/(c^2 + d^2);
+	y = (b*c+a*d)/(c^2 + d^2);
+	x1 = Round(x);
+	y1 = Round(y);
+	q = x1 + y1i;
+	r = a+bi - q(c+di);
+	return(q,r);
+}	
+2) Pseudokod NWD:
+int [] get_NWD(a,b,c,d){
+	int[] temp - new int[2];
+	int[] r1 = new int[2]{a,b};
+	int[] r2 = new int[2]{c,d};
+	while(r2[0] != 0 || r2[1] != 0){
+		temp = r2;
+		r2 = div(r1,r2)[1];
+		r1 = temp;
+	}
+	return r1;
+}
+
+
+3) NWW = a*b/NWD = div(a*b,NWD(a,b))[0]
+
+4) (3+4i, 1+3i) = NWD(3+4i, 1+3i) = 2+i			(3+4i)∩(1+3i) = (NWW(...,...)) = ((1+i)(2+i)^2)
+|3+4i|^2 = 5^2 = 25 = 5^2
+|1+3i|^2 = 10 = 2*5
+
+1+3i/1+i = (1+3i*(1-i))/2 = (1+3+3i-i_/2 = 2+i
+
+3+4i/2+i = (3+4i*(2-i))/5 = (6+4+8i-3i)/5 = 2+i
+
+(1+3i) = (1+i)(2+i)
+3+4i = (2+i)^2

@@ -1,0 +1,32 @@
+Zadanie 5: Zapoznaj się poleceniami systemu Wolfram Alpha służącymi go działań na wielomianach (np. PolynomialQuotientRemainder) oraz generowania krzywych i powierzchni zadawanych równaniami parametrycznymi.
+
+implementacja zad.3,4,ćwiczenia
+
+Plot[x^3+3x-3, {x,-7,7}]
+Plot3D[x^2+y^2, {x,-5,5},{y,-5,5}]
+ParametricPlot3D[{rCos[a],rSin[a], r^2}, {r,0,10(podac mniejsze)}, {a,-Pi,Pi}]
+ParametricPlot[(1-t^2)/(1+t^2), 2t/(1+t^2), {t,-10,10}]
+
+ParametricPlot[(1-t^2)/(1+t^2), 2t/(1+t^2), {t,-Inf,Inf}]
+
+ParametricPlot3D[{Cos[x]^3 Sin[y], Cos[x] Cos[y], Tan[x]}, {x,0,1}, {y,-Pi,Pi}]
+
+PolynomialQuotientRemainder[ax^2+bx, x+1, x]
+	(ax+b-a, a-b)
+
+PolynomialQuotientRemainder[x^2+9x, x+1, x, Modulus -> 7]
+	(x+1, 6)
+
+Wolfram Referene
+
+
+1. Plot3D[z - x^2 - y^2 == 0, {x, -5, 5}, {y, -5, 5}, {z, -5, 5}]
+
+2. Plot3D[z^2 - x^2 - y^2 == 0, {x, -2, 2}, {y, -2, 2}, {z, -2, 2}]
+
+3. Plot3D[z - x^2 + y^2 == 0, {x, -2, 2}, {y, -2, 2}, {z, -2, 2}]
+
+4. Plot3D[{x*z == 0, y*z == 0, z == 0}, {x, -2, 2}, {y, -2, 2}, {z, -2, 2}]
+
+5. ParametricPlot3D[{Sin[2*θ]*Cos[θ], Sin[2*θ]*Sin[θ], θ}, {θ, -Pi, Pi}]
+

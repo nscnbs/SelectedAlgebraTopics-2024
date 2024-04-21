@@ -1,0 +1,37 @@
+Wielomian a0 + a1*x + . . . + an*x^n ∈ R[x] interpretujemy jako ciąg [a0, . . . , an].
+1. Napisz algorytm dzielenia z resztą w pierścieniu wielomianów R[x].
+2. Oprogramuj algorytm wyznaczania NWD dla R[x].
+3. Oprogramuj funkcję wyznaczającą NWW(x, y) dla x, y ∈ R[x].
+4. Korzystając z poprzednich dwóch podpunktów znajdź takie c(x), d(x) ∈ R[x], że (1 + x^2, 1 + 2x + x^2) = (c) oraz (1 + x^2) ∩ (1 + 2x + x^2) = (d).
+
+
+1) a = q*b +r
+div(f,g){
+	q=0;
+	r=0;
+	p = copy(f);
+	while LT(g) dzieli LT(p){
+		q = q + LT(p)/LT(g);
+		p = p - (LT(p)/LT(g))*g;
+	}
+	r = p;
+	return (q,r);
+}
+Gdzie LT() to max stopień wielomianu
+
+2) podobny do alg z liczbami Gaussa
+nwd(a,b):
+	if b=0 
+		return a
+	else
+		(q,r) = div(a,b)
+		return nwd(b,r)
+3) parametry wszystkie stałe oprócz zera
+4) (q(x) = 1+x^2, p(x) = 1 + 2x + x^2) = (NWD(1+x^2, 1 + 2x + x^2)) = (1) = R[x]
+			p(x) = (1+x)^2
+q(x) - p(x) = 2x
+x/2(q(x) - p(x)) = x^2
+p(x) = x/2 (q(x) - p(x)) = 1
+
+
+(1 + x^2) ∩ (1 + 2x + x^2) = (NWW(1+x^2, 1 + 2x + x^2)) = ((1+x^2)(1+x)^2)
